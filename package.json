@@ -1,8 +1,20 @@
 {
     "name": "app-electron-kit",
-    "version": "0.0.1",
+    "version": "0.0.2",
+    "main": "app.js",
+    "description": "app-term-kit in electron",
+    "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
+    "bugs": {
+        "url": "https://github.com/khrome/app-electron-kit/issues"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com/khrome/app-electron-kit.git"
+    },
     "dependencies": {
-        "app-term-kit": "^0.3.1"
+        "app-term-kit": "^0.3.1",
+        "extended-emitter": "^1.0.4"
     },
     "peerDependencies":{
         "electron": "*"

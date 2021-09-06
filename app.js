@@ -1,6 +1,10 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const Application = require('app-term-kit');
 const Emitter = require('extended-emitter');
+const url = require("url");
+
+let windowPrefs = {};
+let applicationConfig = {};
 
 function windowConfig(windowName, configs){
     let newConfig = {};
@@ -21,12 +25,14 @@ function windowConfig(windowName, configs){
     return newConfig;
 };
 
+//TODO: maybe someday allow multiple instances
 const ElectronKit = function(name, options, cb){
     var windows = {};
-    const application = new Application(name, options);
+    let application = new Application(name, options);
     this.application = application;
     this.windows = windows;
-    const Win = function(name, options){
+    if(options.windowDefaults) windowPrefs = options.windowDefaults;
+    const Win = function(windowName, options){
         let newConfig = {};
         let defaults = windowPrefs;
         let prefix = windowName+'-';
@@ -50,7 +56,6 @@ const ElectronKit = function(name, options, cb){
           }
         ]));
         var location = url.format(options.url);
-        console.log(location, options);
         win.loadURL(location);
         win.on('closed', function(){
           windows[name] = null
@@ -62,20 +67,6 @@ const ElectronKit = function(name, options, cb){
     }
     var ob = this;
 
-    if(cb){
-        application.config(function(err, conf, writeConfig){
-            application.save = function(){
-                let incomingConf = arguments.length > 1?arguments[0]:conf;
-                let callback = arguments.length > 1?arguments[1]:arguments[0];
-                writeConfig(incomingConf, function(){
-                    if(callback) callback();
-                });
-            }
-            if(cb) cb(null, ob, conf);
-        });
-        //TODO: support other async actions on init
-    }
-
     app.on('ready', function(){
         if(cb){
             application.config(function(err, conf, writeConfig){
@@ -86,8 +77,20 @@ const ElectronKit = function(name, options, cb){
                         if(callback) callback();
                     });
                 }
-                if(cb) cb(null, application, conf);
-            });
+                var menus = [];
+                application.menu = function(name, submenu){
+                    menus.push({
+                      label: name,
+                      submenu: submenu
+                    });
+                }
+                application.menus = function(name, submenu){
+                    let menu = Menu.buildFromTemplate(menus);
+                    Menu.setApplicationMenu(menu);
+                }
+                applicationConfig = conf;
+                if(cb) cb(null, ob, conf);
+            }, true);
             //TODO: support other async actions on init
         }
     });
@@ -102,8 +105,6 @@ const ElectronKit = function(name, options, cb){
     app.on('activate', function(){
         emitter.emit('app-focus');
         //TODO: update menus
-      //if(mainWindow === null) createWindow();
-      //if(menu === null) createMenu();
     });
 
     this.electron = app;
@@ -113,6 +114,6 @@ const ElectronKit = function(name, options, cb){
 
 
 
-process.exports = function(){
+module.exports = {
     Kit: ElectronKit
 }
