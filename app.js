@@ -62,8 +62,9 @@ const ElectronKit = function(name, options, cb){
         });
         var ob = this;
         this.save = function(){
-            ob.application.save.apply({}, arguments);
+            application.save.apply({}, arguments);
         }
+        this.electron = win;
     }
     var ob = this;
 
