@@ -1,0 +1,10 @@
+{
+    "name": "app-electron-kit",
+    "version": "0.0.1",
+    "dependencies": {
+        "app-term-kit": "^0.3.1"
+    },
+    "peerDependencies":{
+        "electron": "*"
+    }
+}
