@@ -29,9 +29,8 @@ module.exports = function(pkg, config, app, actions){
                 '--------',
                 'Services',
                 '--------',
-                'Hide Atom',
-                'Hide Others',
-                'Show All',
+                'Hide ',
+                'Show ',
                 '--------',
                 'Quit '
             ]));
@@ -55,15 +54,92 @@ module.exports = function(pkg, config, app, actions){
                 'Paste',
                 'Paste ',
             ]));
-            app.application.menus();
             break;
         case 'win32':
+            app.application.menu('File', menu([
+                'New ',
+                '--------',
+                'Open ',
+                '--------',
+                'Save ',
+                '--------',
+                'Close ',
+                '--------',
+                'Settings',
+            ]));
+            app.application.menu('Edit', menu([
+                'Undo',
+                'Redo',
+                '--------',
+                'Cut',
+                'Cut ',
+                'Copy',
+                'Copy ',
+                'Paste',
+                'Paste ',
+            ]));
+            app.application.menu('View', menu([
+                'Show ',
+                'Hide '
+            ]));
+            app.application.menu('Windows', menu([ ]));
+            app.application.menu('Help', menu([
+                'About ',
+                'View License',
+                'Version ',
+                'Check for Update',
+                '--------',
+                'Help',
+                '--------',
+                'Search ',
+                'Install '
+            ]));
             break;
         case 'linux':
         case 'aix':
         case 'freebsd':
         case 'openbsd':
+            //just a copy of windows for now
+            app.application.menu('File', menu([
+                'New ',
+                '--------',
+                'Open ',
+                '--------',
+                'Save ',
+                '--------',
+                'Close ',
+                '--------',
+                'Settings',
+            ]));
+            app.application.menu('Edit', menu([
+                'Undo',
+                'Redo',
+                '--------',
+                'Cut',
+                'Cut ',
+                'Copy',
+                'Copy ',
+                'Paste',
+                'Paste ',
+            ]));
+            app.application.menu('View', menu([
+                'Show ',
+                'Hide '
+            ]));
+            app.application.menu('Windows', menu([ ]));
+            app.application.menu('Help', menu([
+                'About ',
+                'View License',
+                'Version ',
+                'Check for Update',
+                '--------',
+                'Help',
+                '--------',
+                'Search ',
+                'Install '
+            ]));
             break;
         //TODO: detect raspberry pi
     }
+    app.application.menus();
 }

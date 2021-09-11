@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const Application = require('app-term-kit');
 const Emitter = require('extended-emitter');
+const Mangrove = require('mangrove');
 const url = require("url");
 
 let windowPrefs = {};
@@ -68,6 +69,15 @@ const ElectronKit = function(name, options, cb){
     }
     var ob = this;
 
+    var handleData = function(cb){
+      if(options.data){
+        ob.db = new Mangrove(options.data);
+        ob.db.ready(function(){
+          cb();
+        })
+      } else cb();
+    };
+
     app.on('ready', function(){
         if(cb){
             application.config(function(err, conf, writeConfig){
@@ -90,7 +100,9 @@ const ElectronKit = function(name, options, cb){
                     Menu.setApplicationMenu(menu);
                 }
                 applicationConfig = conf;
-                if(cb) cb(null, ob, conf);
+                handleData(function(){
+                  if(cb) cb(null, ob, conf);
+                });
             }, true);
             //TODO: support other async actions on init
         }

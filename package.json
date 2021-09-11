@@ -1,6 +1,6 @@
 {
     "name": "app-electron-kit",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "main": "app.js",
     "description": "app-term-kit in electron",
     "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
@@ -14,9 +14,10 @@
     },
     "dependencies": {
         "app-term-kit": "^0.3.1",
-        "extended-emitter": "^1.0.4"
+        "extended-emitter": "^1.0.4",
+        "mangrove": "^0.6.5"
     },
-    "peerDependencies":{
+    "peerDependencies": {
         "electron": "*"
     }
 }
