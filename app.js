@@ -70,6 +70,7 @@ const ElectronKit = function(name, options, cb){
     var ob = this;
 
     var handleData = function(cb){
+      //TODO: handle multiple
       if(options.data){
         ob.db = new Mangrove(options.data);
         ob.db.ready(function(){
@@ -121,7 +122,6 @@ const ElectronKit = function(name, options, cb){
     });
 
     this.electron = app;
-
     this.Window = Win;
 };
 
