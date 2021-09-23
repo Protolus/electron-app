@@ -9,9 +9,8 @@ Bringing all the goodness of [app-term-kit](https://www.npmjs.com/package/app-te
 
 Roadmap
 -------
-- Data/Event Sync
 - Test Windows Apps
-- Link Menu Binding, CL options and Preferences somehow
-- Produce OS X Properties File with appropriate security
+- Link Menu Binding, CL options and Preferences
+- Produce OS X Properties File with appropriate security requests
 - Test Harness
 - Documentation
