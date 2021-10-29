@@ -104,7 +104,7 @@ const ElectronKit = function(name, options, cb){
                 handleData(function(){
                   if(cb) cb(null, ob, conf);
                 });
-            }, true);
+            }, true, true); //enable dir read + auto create defaults
             //TODO: support other async actions on init
         }
     });

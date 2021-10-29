@@ -1,6 +1,6 @@
 {
     "name": "app-electron-kit",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "main": "app.js",
     "description": "app-term-kit in electron",
     "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
@@ -13,7 +13,7 @@
         "url": "git@github.com/khrome/app-electron-kit.git"
     },
     "dependencies": {
-        "app-term-kit": "^0.3.1",
+        "app-term-kit": "^0.3.2",
         "extended-emitter": "^1.1.0",
         "mangrove": "^0.7.0"
     },
