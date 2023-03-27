@@ -1,21 +1,21 @@
 {
-    "name": "app-electron-kit",
-    "version": "0.0.8",
+    "name": "@protolus/electron-app",
+    "version": "0.0.1",
     "main": "app.js",
-    "description": "app-term-kit in electron",
+    "description": "application wrapper for electron using common config with terminal-app",
     "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
     "bugs": {
-        "url": "https://github.com/khrome/app-electron-kit/issues"
+        "url": "https://github.com/Protolus/electron-app/issues"
     },
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git@github.com/khrome/app-electron-kit.git"
+        "url": "git@github.com/Protolus/electron-app.git"
     },
     "dependencies": {
-        "app-term-kit": "^0.3.2",
+        "@protolus/terminal-app": "^0.0.1",
         "extended-emitter": "^1.1.0",
-        "mangrove": "^0.7.0"
+        "mangrove": "^0.7.3"
     },
     "peerDependencies": {
         "electron": "*"
