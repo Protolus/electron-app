@@ -1,5 +1,5 @@
 const { app, BrowserWindow, Menu } = require('electron');
-const Application = require('app-term-kit');
+const Application = require('@protolus/terminal-app');
 const Emitter = require('extended-emitter');
 const Mangrove = require('mangrove');
 const url = require("url");
