@@ -1,8 +1,8 @@
-app-electron-kit
-================
-Bringing all the goodness of [app-term-kit](https://www.npmjs.com/package/app-term-kit) to GUI desktop apps in electron.
+@protolus/electron-app
+======================
+Bringing all the goodness of [@protolus/terminal-app](https://www.npmjs.com/package/@protolus/terminal-app) to GUI desktop apps in electron.
 
-- Common data storage and config between GUI and CLI apps (using [app-term-kit](https://www.npmjs.com/package/app-term-kit)).
+- Common data storage and config between GUI and CLI apps (using [@protolus/terminal-app](https://www.npmjs.com/package/@protolus/terminal-app)).
 - Handles data sync between windows.
 - Handles OS Specific Menu Configuration
 

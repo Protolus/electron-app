@@ -1,6 +1,6 @@
 {
     "name": "@protolus/electron-app",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "app.js",
     "description": "application wrapper for electron using common config with terminal-app",
     "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
