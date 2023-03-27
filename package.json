@@ -15,7 +15,7 @@
     "dependencies": {
         "@protolus/terminal-app": "^0.0.1",
         "extended-emitter": "^1.1.0",
-        "mangrove": "^0.7.3"
+        "mangrove": "^0.7.4"
     },
     "peerDependencies": {
         "electron": "*"
